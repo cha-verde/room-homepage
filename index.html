@@ -16,23 +16,30 @@
 </head>
 <body class="grid font-main">
   <header class="header">
-  <img src="" alt="" class="current__image">
+  <img src="" alt="" class="current__image product__photo">
      <nav class="nav flow-horizontal">
-      <img src="./images/logo.svg">
-    <div>
-      <a href="#">Home</a>
-    </div>
-    <div>
-      <a href="#">Shop</a>
-    </div>
-    <div>
-      <a href="#">About</a>
-    </div>
-    <div>
-      <a href="#">Contact</a>
-    </div>
+      <div class="container">
+        <img src="./images/logo.svg" class="nav__logo" alt="">
+        <button class="nav__hamburger"><img src="./images/icon-hamburger.svg"></button>
+            <div class="flow-horizontal nav__links">
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            </div>
+      </div>
   </nav>
 </header>
+<div class="flow-horizontal hamburger__links">
+
+    <div class="container">
+      <button class="hamburger__close"><img src="./images/icon-close.svg" alt=""></button>
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+  </div>
 <div class="shop padding-three">
   <div class="feature flow">
     <div class="feature__title font-weight-700 font-size-three"></div>
@@ -44,8 +51,8 @@
   </div>
 </div>
 
-<div class="photo-one">
-  <img src="./images/image-about-dark.jpg" class=" photo-height">
+<div class="photo-one product__photo">
+  <img class="product__photo" src="./images/image-about-dark.jpg" class=" photo-height">
 </div>
 <div class="about flow padding-two">
     <div class="about__title font-weight-700 font-size-two">About our furniture</div>
@@ -58,7 +65,7 @@
 
 </div>
 <div class="photo-two">
-  <img src="./images/image-about-light.jpg">
+  <img class="product__photo" src="./images/image-about-light.jpg">
 </div>
   
   <!-- <div class="attribution">

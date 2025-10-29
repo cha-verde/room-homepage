@@ -57,3 +57,19 @@ function changeContent(){
 featureTitle.textContent = slides[currentPosition].title;
 featureDescription.textContent = slides[currentPosition].description;
 }
+
+const navHamburger = document.querySelector(".nav__hamburger")
+const hamburgerLinks = document.querySelector(".hamburger__links")
+const hamburgerClose = document.querySelector(".hamburger__close")
+
+navHamburger.addEventListener("click", () => {
+   hamburgerLinks.style.display = "block"
+
+})
+
+hamburgerClose.addEventListener("click", () => {
+    console.log("asd")
+
+    hamburgerLinks.style.display = "none"
+ })
+ 
