@@ -1,0 +1,46 @@
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+header {
+    display: block;
+    position: relative;
+    .nav {
+      display: flex;
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      a{
+        color: var(--color-main)
+      }
+    }
+  }
+
+  .shop{
+    position: relative;
+    .shop__button{
+        display: flex;
+    }
+    .slide__buttons{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+        .slide__left, .slide__right{
+            background-color: var(--color-title);
+            padding: 1rem;
+            img{
+
+                flex-shrink: 0;
+            }
+        }
+    }
+
+  }
+
