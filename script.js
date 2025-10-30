@@ -20,56 +20,67 @@ const slides = [{
 
 let currentPosition = 0;
 
-const currentImage = document.querySelector(".current__image");
-const featureTitle = document.querySelector(".feature__title");
-const featureDescription = document.querySelector(".feature__description");
 
-currentImage.src = headerImages[currentPosition];
-featureTitle.textContent = slides[currentPosition].title;
-featureDescription.textContent = slides[currentPosition].description;
+const carousel = document.querySelector(".carousel");
+const carouselSecond = document.querySelector(".carousel-second");
+
 
 const slideLeft = document.querySelector(".slide__left");
 const slideRight = document.querySelector(".slide__right");
 
-slideLeft.addEventListener("click", () => {
-    if(currentPosition == 0){
-        currentPosition = 2;
-    }
-    else{
-        currentPosition--;
-    }
-    changeContent();
-})
 
 slideRight.addEventListener("click", () => {
-    if(currentPosition == 2){
-        currentPosition = 0;
-    }
-    else{
-        currentPosition++;
-    }
-    changeContent();
+    carousel.scrollBy(30, 0);
+    carouselSecond.scrollBy(30, 0);
 
 })
 
-function changeContent(){
-    currentImage.src = headerImages[currentPosition];
-featureTitle.textContent = slides[currentPosition].title;
-featureDescription.textContent = slides[currentPosition].description;
-}
+slideLeft.addEventListener("click", () => {
+    carousel.scrollBy(-30, 0);
+    carouselSecond.scrollBy(-30, 0);
+
+})
+
+
+ for(let i = 0; i < headerImages.length; i++){
+    const list = document.createElement("li");
+    const image = document.createElement("img");
+    image.className = "product__photo"
+
+    image.src = headerImages[i];
+    list.appendChild(image);
+    carousel.appendChild(list);
+
+    const title = document.createElement("div")
+    title.className = "feature__title font-weight-700 font-size-two";
+    const desc = document.createElement("div", {className: "feature__description", className: "color-description"});
+
+    title.textContent = slides[i].title;
+    desc.textContent = slides[i].description;
+    
+    const li = document.createElement("li");
+
+    li.prepend(desc);
+    li.prepend(title);
+
+    carouselSecond.prepend(li);
+
+
+};
+
+
 
 const navHamburger = document.querySelector(".nav__hamburger")
 const hamburgerLinks = document.querySelector(".hamburger__links")
 const hamburgerClose = document.querySelector(".hamburger__close")
 
 navHamburger.addEventListener("click", () => {
-   hamburgerLinks.style.display = "block"
+   hamburgerLinks.classList.toggle("active")
 
 })
 
 hamburgerClose.addEventListener("click", () => {
-    console.log("asd")
+    hamburgerLinks.classList.toggle("active")
 
-    hamburgerLinks.style.display = "none"
  })
  

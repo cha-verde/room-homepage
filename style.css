@@ -99,14 +99,25 @@ body {
   object-fit: cover;
 }
 
+.carousel, .carousel-second {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge legacy */
+}
+
+.carousel::-webkit-scrollbar, .carousel-second::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Edge */
+}
+
 .hamburger__links {
-  display: none;
   position: absolute;
   top: 0;
   left: 0;
   width: 100dvw;
   height: 100dvh;
   background-color: gray;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
 .hamburger__links .container {
   width: 100%;
@@ -117,9 +128,31 @@ body {
   justify-content: space-around;
 }
 
+.hamburger__links.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s linear;
+}
+
 header {
-  display: block;
+  display: flex;
   position: relative;
+}
+header .carousel {
+  width: 100%;
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  object-fit: cover;
+  padding: 0 !important;
+  margin: 0 !important;
+  scroll-behavior: smooth;
+}
+header .carousel li {
+  width: 100%;
+  height: 100%;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
 }
 header .nav {
   display: flex;
@@ -127,11 +160,12 @@ header .nav {
   top: 1rem;
   left: 1rem;
 }
-header .nav .header__hamburger {
+header .nav .nav__hamburger {
   display: none;
 }
-header .nav .nav__links {
-  display: none;
+header .nav .container {
+  display: flex;
+  gap: 1rem;
 }
 header .nav a {
   color: var(--color-main);
@@ -139,6 +173,30 @@ header .nav a {
 
 .shop {
   position: relative;
+}
+.shop .feature {
+  width: 100%;
+  height: 100%;
+}
+.shop .feature .carousel-second {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  object-fit: cover;
+  padding: 0 !important;
+  margin: 0 !important;
+  scroll-behavior: smooth;
+}
+.shop .feature .carousel-second li {
+  width: 100%;
+  height: 100%;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+}
+.shop .feature .carousel-second li .feature__title {
+  margin-bottom: 1rem;
 }
 .shop .shop__button {
   display: flex;
@@ -175,6 +233,9 @@ header .nav a {
     flex-direction: row;
     width: 100%;
   }
+  nav .container .nav__links {
+    display: none;
+  }
   nav .container .nav__logo {
     order: 1;
     margin-right: auto;
@@ -182,6 +243,7 @@ header .nav a {
   }
   nav .container .nav__hamburger {
     display: block;
+    position: absolute;
     order: 0;
     margin: 0 !important;
     padding: 0 !important;
@@ -189,7 +251,7 @@ header .nav a {
   .slide__buttons {
     left: auto !important;
     right: 0;
-    top: -15%;
+    top: -7.3vh;
   }
   .shop {
     padding: 2rem !important;
